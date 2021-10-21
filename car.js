@@ -18,3 +18,64 @@
 // - Exécuter la fonction `brake` de ford avec une vitesse de 25 km/h et afficher `ford` 
 // dans la console
 // - Faites la même chose avec une nouvelle voiture
+
+class Car {
+    constructor(brand, speed){
+        this.brand = brand
+        this.speed = speed
+    }
+
+    accelerate(number) {
+        this.speed += number 
+    }
+    brake(number) {
+        this.speed -= number 
+    }
+    describe() {
+        console.log(`${this.brand} running at ${this.speed} km/h`) 
+
+    }
+}
+
+var ford = new Car("ford", 25)
+ford.accelerate(90)
+ford.brake(8)
+ford.describe()
+
+
+// ## 2 - TV
+
+// - Créer une class `TV` avec les propriétés `brand`, `channel`, `volume`. La chaine par défaut sera 
+//  1, et le volume par défaut sera 50
+// - Ajouter deux méthodes pour baisser et augmenter le volume. Le volume ne peut pas aller en dessous 
+// de 0, et pas au dessus de 100
+// - Ajouter une méthode pour changer de chaine. Notre télé a seulement 50 chaines, si on essaye de 
+// changer une chaine au dessus de 50, on restera sur la chaine courante. Pareil pour une chaine en 
+// dessous de 0
+// - Ajouter une méthode pour reset les paramètres de notre `TV`, qui remettra la chaine et le volume 
+// de base
+// - Ajouter une méthode `describe` qui va afficher les infos de notre `TV`
+// - Testez votre classe et ses méthodes avec différentes valeurs
+
+
+class TV {
+    constructor(brand){
+        this.brand = brand
+        this.channel = 1
+        this.volume = 50
+    }
+    chainePlus(number){
+        this.channel += number 
+        if (this.channel>50){
+            this.channel = 50
+        } else if (this.channel < 1){
+            this.channel = 1
+        }
+    }
+    lower(number){
+        this.volume -= number 
+        if (this.volume<0){
+            this.volume = 0
+        }
+    }
+    up(number){
