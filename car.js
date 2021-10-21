@@ -79,3 +79,18 @@ class TV {
         }
     }
     up(number){
+        this.volume +=number
+        if (this.volume>100){
+            this.volume = 100
+        }
+    }
+    describe(){
+        console.log(`la tele est ${this.brand}la chaine est la ${this.channel} et le volume est de  ${this.volume}`)
+    }
+}
+
+var fff = new TV("samsung ")
+fff.lower(34)
+fff.up(67)
+fff.chainePlus(32)
+fff.describe()
